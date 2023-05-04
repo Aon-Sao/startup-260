@@ -6,3 +6,10 @@ Github's guide can be found [here](https://docs.github.com/en/get-started/writin
 
 ## Environments
 Production is the server, deploy using a shell script, develop and test locally.
+
+## Server
+[http://52.45.233.47/](http://52.45.233.47/)
+ssh -i /home/lars/Documents/College/Term4S23/cs260/260awskeypairname.pem ubuntu@52.45.233.47
+
+### Certificates
+Needed for HTTPS. Let's Encrypt generates certificates. Caddy interfaces with that on my behalf. 
