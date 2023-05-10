@@ -26,64 +26,6 @@ Is insecure, prefer to load over HTTPS. Serve it on localhost instead.
 <!DOCTYPE html> specifies HTML version 5, allowing the browser to not load a bunch of compatibilities.
 The browser turns the HTML into a tree, the DOM, Document Object Model, and renders that.
 
-<table>
-<thead>
-<tr>
-<th>Element</th>
-<th>Meaning</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>form</code></td>
-<td>Input container and submission</td>
-<td><code>&lt;form action="form.html" method="post"&gt;</code></td>
-</tr>
-<tr>
-<td><code>fieldset</code></td>
-<td>Labeled input grouping</td>
-<td><code>&lt;fieldset&gt; ... &lt;/fieldset&gt;</code></td>
-</tr>
-<tr>
-<td><code>input</code></td>
-<td>Multiple types of user input</td>
-<td><code>&lt;input type="" /&gt;</code></td>
-</tr>
-<tr>
-<td><code>select</code></td>
-<td>Selection dropdown</td>
-<td><code>&lt;select&gt;&lt;option&gt;1&lt;/option&gt;&lt;/select&gt;</code></td>
-</tr>
-<tr>
-<td><code>optgroup</code></td>
-<td>Grouped selection dropdown</td>
-<td><code>&lt;optgroup&gt;&lt;option&gt;1&lt;/option&gt;&lt;/optgroup&gt;</code></td>
-</tr>
-<tr>
-<td><code>option</code></td>
-<td>Selection option</td>
-<td><code>&lt;option selected&gt;option2&lt;/option&gt;</code></td>
-</tr>
-<tr>
-<td><code>textarea</code></td>
-<td>Multiline text input</td>
-<td><code>&lt;textarea&gt;&lt;/textarea&gt;</code></td>
-</tr>
-<tr>
-<td><code>label</code></td>
-<td>Individual input label</td>
-<td><code>&lt;label for="range"&gt;Range: &lt;/label&gt;</code></td>
-</tr>
-<tr>
-<td><code>output</code></td>
-<td>Output of input</td>
-<td><code>&lt;output for="range"&gt;0&lt;/output&gt;</code></td>
-</tr>
-<tr>
-<td><code>meter</code></td>
-<td>Display value with a known range</td>
-<td><code>&lt;meter min="0" max="100" value="50"&gt;&lt;/meter&gt;</code></td>
-</tr>
-</tbody>
-</table>
+A div takes up the whole width of the page
+A span is inline, only as wide as the content
+Try to be semantically expressive with choice of element, don't just use div
