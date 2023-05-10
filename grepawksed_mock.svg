@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="grepawksed_mock.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.7367354"
+     inkscape:cx="712.60319"
+     inkscape:cy="568.72521"
+     inkscape:window-width="1920"
+     inkscape:window-height="1019"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="124.99229"
+       y="47.007963"
+       width="438.25982"
+       height="55.512253"
+       id="rect462" />
+    <rect
+       x="124.99229"
+       y="47.007961"
+       width="438.25983"
+       height="55.512253"
+       id="rect462-5" />
+    <rect
+       x="124.99229"
+       y="47.007961"
+       width="438.25983"
+       height="55.512253"
+       id="rect462-5-5" />
+    <rect
+       x="124.99229"
+       y="47.007961"
+       width="438.25983"
+       height="55.512253"
+       id="rect462-5-5-2" />
+    <rect
+       x="124.99229"
+       y="47.007961"
+       width="438.25983"
+       height="55.512253"
+       id="rect462-5-5-2-2" />
+    <rect
+       x="124.99229"
+       y="47.007961"
+       width="438.25983"
+       height="55.512253"
+       id="rect462-5-5-2-2-0" />
+    <rect
+       x="124.99229"
+       y="47.007961"
+       width="438.25983"
+       height="55.512253"
+       id="rect462-5-5-2-2-0-3" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="display:inline;fill:#333333;stroke-width:2.89117"
+       id="rect1257"
+       width="210"
+       height="297.00018"
+       x="0"
+       y="0" />
+    <rect
+       style="fill:#5d6c53;stroke-width:0.264583"
+       id="rect111"
+       width="72.299866"
+       height="94.817543"
+       x="30.492266"
+       y="59.013611" />
+    <rect
+       style="fill:#5d6c53;stroke-width:0.264583"
+       id="rect111-3"
+       width="72.299866"
+       height="94.817543"
+       x="112.36407"
+       y="58.915989" />
+    <rect
+       style="fill:#6c535d;stroke-width:0.23607"
+       id="rect111-3-6"
+       width="154.14305"
+       height="35.404514"
+       x="30.024382"
+       y="170.33508" />
+    <rect
+       style="fill:#374548;stroke-width:0.13575"
+       id="rect111-3-6-7"
+       width="154.14305"
+       height="11.707235"
+       x="30.119061"
+       y="32.895203" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-3.450586,13.24338)"
+       id="text460"
+       style="font-size:21.3333px;white-space:pre;shape-inside:url(#rect462);display:inline;fill:#aa8800"><tspan
+         x="124.99219"
+         y="66.418452"
+         id="tspan1696">Grep, Awk, Sed expressions</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-2.9664042,39.792417)"
+       id="text460-3"
+       style="font-size:21.3333px;white-space:pre;shape-inside:url(#rect462-5);display:inline;fill:#aa8800"><tspan
+         x="124.99219"
+         y="66.418452"
+         id="tspan1698">STDIN</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,78.640007,39.630463)"
+       id="text460-3-6"
+       style="font-size:21.3333px;white-space:pre;shape-inside:url(#rect462-5-5);display:inline;fill:#aa8800"><tspan
+         x="124.99219"
+         y="66.418452"
+         id="tspan1700">STDOUT</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-1.5137349,151.22342)"
+       id="text460-3-6-9"
+       style="font-size:21.3333px;white-space:pre;shape-inside:url(#rect462-5-5-2);display:inline;fill:#aa8800"><tspan
+         x="124.99219"
+         y="66.418452"
+         id="tspan1702">STDERR</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,53.950089,209.18385)"
+       id="text460-3-6-9-7"
+       style="font-size:21.3333px;white-space:pre;shape-inside:url(#rect462-5-5-2-2);display:inline;fill:#aa8800"><tspan
+         x="124.99219"
+         y="66.418452"
+         id="tspan1704">Login</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,35.862365,221.58071)"
+       id="text460-3-6-9-7-9"
+       style="font-size:21.3333px;white-space:pre;shape-inside:url(#rect462-5-5-2-2-0);display:inline;fill:#aa8800"><tspan
+         x="124.99219"
+         y="66.418452"
+         id="tspan1706">Username</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,37.534254,233.57498)"
+       id="text460-3-6-9-7-9-6"
+       style="font-size:21.3333px;white-space:pre;shape-inside:url(#rect462-5-5-2-2-0-3);display:inline;fill:#aa8800"><tspan
+         x="124.99219"
+         y="66.418452"
+         id="tspan1708">Password</tspan></text>
+    <rect
+       style="fill:#666666;stroke-width:0.174981"
+       id="rect1343"
+       width="74.374428"
+       height="11.244669"
+       x="99.569405"
+       y="231.28685" />
+    <rect
+       style="fill:#666666;stroke-width:0.174981"
+       id="rect1343-1"
+       width="74.374428"
+       height="11.244669"
+       x="100.21445"
+       y="245.32741" />
+  </g>
+</svg>
