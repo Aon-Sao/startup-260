@@ -29,3 +29,10 @@ The browser turns the HTML into a tree, the DOM, Document Object Model, and rend
 A div takes up the whole width of the page
 A span is inline, only as wide as the content
 Try to be semantically expressive with choice of element, don't just use div
+This is a good way to label things:
+```html
+<figure>
+<figcaption></figcaption>
+<!-- content -->
+</figure>
+```
