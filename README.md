@@ -38,3 +38,15 @@ I am going to use the required technologies in the following ways.
 - **WebSocket** - Record length command is broadcast to other users.
 - **React** - Application ported to use the React web framework.
 - **caddy-cgi** - To run gnu grep, awk, and sed. See the [GitHub](https://github.com/aksdb/caddy-cgi).
+
+## HTML deliverable
+
+For this deliverable I added the application structure.
+
+- **HTML pages** - Two HTML pages, one providing the repl, the other saved data.
+- **Links** - The repl page has a button to go to the saved page, and so the other way.
+- **Text** - The fields are all labeled, as descriptions and filler where appropriate.
+- **Images** - I made myself a logo, see the top of the page.
+- **Login** - Input box and submit button for login.
+- **Database** - The 'saved' page is where the data would show up. Hit the button 'Go to saved'.
+- **WebSocket** - The Websocket Alert Area is where notifications will pop up when a new longest command is saved.
