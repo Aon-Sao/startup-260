@@ -29,10 +29,18 @@ The browser turns the HTML into a tree, the DOM, Document Object Model, and rend
 A div takes up the whole width of the page
 A span is inline, only as wide as the content
 Try to be semantically expressive with choice of element, don't just use div
-This is a good way to label things:
+This is a way to label things:
 ```html
 <figure>
 <figcaption></figcaption>
 <!-- content -->
 </figure>
 ```
+
+# CSS
+The browser has a baseline stylesheet that I might want to delete, so that my css looks the same on all browsers.
+Use @media to switch to column layout if mobile
+Use bootstrap or tailwind
+
+# JS
+I'll have event listeners and invoke grep, awk, sed from JS.
