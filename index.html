@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport"/>
     <title>Grepawksed!</title>
     <!--
     Reload every 5 seconds
@@ -23,16 +25,16 @@
 </header>
 <main>
     <!-- Need 4 text boxes -->
-    <form>
-        <label for="command">Grep, Awk, Sed commands</label>
-        <input id="command" name="command" type="text"></input>
-        <label for="stdin">STDIN</label>
-        <textarea id="stdin" name="stdin"></textarea>
-    </form>
-    <label for="stdout">STDOUT</label>
-    <textarea id="stdout" name="stdout"></textarea>
-    <label for="stderr">STDERR</label>
-    <textarea id="stderr" name="stderr"></textarea>
+    <div class="io-fields-container">
+        <label class="iolabel" for="command">Grep, Awk, Sed commands</label>
+        <input class="iobox" id="command" name="command" type="text"></input>
+        <label class="iolabel" for="stdin">STDIN</label>
+        <textarea class="iobox" id="stdin" name="stdin"></textarea>
+        <label class="iolabel" for="stdout">STDOUT</label>
+        <textarea class="iobox" id="stdout" name="stdout"></textarea>
+        <label class="iolabel" for="stderr">STDERR</label>
+        <textarea class="iobox" id="stderr" name="stderr"></textarea>
+    </div>
     <a href="saved.html">
         <button>Go to saved</button>
     </a>
