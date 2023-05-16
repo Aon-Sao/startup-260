@@ -1,47 +1,90 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="index.css">
-    <meta name="viewport"/>
-    <title>Grepawksed!</title>
-    <!--
-    Reload every 5 seconds
-    <meta http-equiv="refresh" content="5">
-    -->
-</head>
-<body>
-<header>
-    <img src="site_logo.svg" width="200em" alt="A pipe labeled grep, awk, sed">
-    <p>WebSocket Alert Area | Longest pipeline is: lorem ipsum</p>
-    <p>Sign in to save commands! | Signed in as: lorem ipsum</p>
-    <!-- Sign in form here -->
-    <form>
-        <label for="username">Username</label>
-        <input id="username" name="username" type="text" required ></input>
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" required ></input>
-        <button type="submit">Sign In</button>
-    </form>
-</header>
-<main>
-    <!-- Need 4 text boxes -->
-    <div class="io-fields-container">
-        <label class="iolabel" for="command">Grep, Awk, Sed commands</label>
-        <input class="iobox" id="command" name="command" type="text"></input>
-        <label class="iolabel" for="stdin">STDIN</label>
-        <textarea class="iobox" id="stdin" name="stdin"></textarea>
-        <label class="iolabel" for="stdout">STDOUT</label>
-        <textarea class="iobox" id="stdout" name="stdout"></textarea>
-        <label class="iolabel" for="stderr">STDERR</label>
-        <textarea class="iobox" id="stderr" name="stderr"></textarea>
-    </div>
-    <a href="saved.html">
-        <button>Go to saved</button>
-    </a>
-</main>
-<footer>
-    <p>Author: Lars Tracy</p>
-    <a href="https://github.com/Aon-Sao/startup-260">GitHub</a>
-</footer>
-</body>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Grepawksed!</title>
+        <meta charset="utf-8"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    </head>
+    <body class="vh-100 container text-white bg-dark bg-gradient">
+        <header class="row container">
+            <div class="row">
+                <img class="col-4" src="site_logo.svg" alt="A pipe labeled grep, awk, sed"/>
+                <div class="col container">
+                    <p class="row">WebSocket Alert Area | Longest pipeline is: lorem ipsum</p>
+                    <p class="row">Sign in to save commands! | Signed in as: lorem ipsum</p>
+                </div>
+            </div>
+            <!-- Sign in form here -->
+            <form>
+                <div class="row">
+                    <figure class="col-3">
+                        <figcaption>
+                            <label class="form-label" for="username">Username</label>
+                        </figcaption>
+                        <input class="form-control text-white bg-dark" id="username" name="username" type="text" required ></input>
+                    </figure>
+                    <figure class="col-3">
+                        <figcaption>
+                            <label class="form-label" for="password">Password</label>
+                        </figcaption>
+                        <input class="form-control text-white bg-dark" id="password" name="password" type="password" required ></input>
+                    </figure>
+                    <figure class="col-3">
+                        <figcaption>
+                            <label class="form-label" for="login-btn">&ZeroWidthSpace;</label>
+                        </figcaption>
+                        <button class="btn btn-dark" id="login-btn" type="submit">Sign In</button>
+                    </figure>
+                </div>
+            </form>
+        </header>
+        <main class="row container">
+            <!-- Need 4 text boxes -->
+            <div class="row">
+                <figure class="col">
+                    <figcaption>
+                        <label class="form-label" for="command">Grep, Awk, Sed commands</label>
+                    </figcaption>
+                    <textarea class="form-control text-white bg-dark" rows="1" id="command" name="command"></textarea>
+                </figure>
+            </div>
+            <div class="row">
+                <figure class="col-6">
+                    <figcaption>
+                        <label class="form-label align-self-start" for="stdin">STDIN</label>
+                    </figcaption>
+                    <textarea class="form-control  text-white bg-dark" rows="10" id="stdin" name="stdin"></textarea>
+                </figure>
+                <figure class="col-6">
+                    <figcaption>
+                        <label class="form-label" for="stdout">STDOUT</label>
+                    </figcaption>
+                    <textarea class="form-control text-white bg-dark" rows="10" id="stdout" name="stdout"></textarea>
+                </figure>
+            </div>
+            <div class="row">
+                <figure class="col">
+                    <figcaption>
+                        <label class="form-label" for="stderr">STDERR</label>
+                    </figcaption>
+                    <textarea class="form-control text-white bg-dark" rows="3" id="stderr" name="stderr"></textarea>
+                </figure>
+            </div>
+        </main>
+        <footer class="row container">
+            <div class="row">
+                <a class="col" href="saved.html">
+                    <button class="btn btn-dark">Go to saved</button>
+                </a>
+            </div>
+            <div class="row">
+                <p class="col">Author: Lars Tracy</p>
+            </div>
+            <div class="row">
+                <a class="col-1" href="https://github.com/Aon-Sao/startup-260">GitHub</a>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </body>
 </html>
