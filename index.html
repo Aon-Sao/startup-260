@@ -8,35 +8,31 @@
     </head>
     <body class="vh-100 container text-white bg-dark bg-gradient">
         <header class="row container">
-            <div class="row">
-                <img class="col-4" src="site_logo.svg" alt="A pipe labeled grep, awk, sed"/>
-                <div class="col container">
-                    <p class="row">WebSocket Alert Area | Longest pipeline is: lorem ipsum</p>
-                    <p class="row">Sign in to save commands! | Signed in as: lorem ipsum</p>
-                </div>
+            <div class="col">
+                <img class="col" src="site_logo.svg" alt="A pipe labeled grep, awk, sed"/>
             </div>
             <!-- Sign in form here -->
-            <form>
-                <div class="row">
-                    <figure class="col-3">
+            <form class="col container">
+                    <figure class=col>
                         <figcaption>
                             <label class="form-label" for="username">Username</label>
                         </figcaption>
                         <input class="form-control text-white bg-dark" id="username" name="username" type="text" required ></input>
                     </figure>
-                    <figure class="col-3">
+                    <figure class="col">
                         <figcaption>
                             <label class="form-label" for="password">Password</label>
                         </figcaption>
                         <input class="form-control text-white bg-dark" id="password" name="password" type="password" required ></input>
                     </figure>
-                    <figure class="col-3">
+                    <figure class="col container">
                         <figcaption>
-                            <label class="form-label" for="login-btn">&ZeroWidthSpace;</label>
+                            <label class="form-label" for="login-btn">&ZeroWidthSpace;Sign in to save commands and see WebSocket stuff</label>
                         </figcaption>
-                        <button class="btn btn-dark" id="login-btn" type="submit">Sign In</button>
+                        <button class="col btn btn-dark" id="login-btn" type="submit">Sign In</button>
+                        <button class="col btn btn-dark" type="submit">Save command</button>
+                        <span class="col">Current user: lorem ipsum</span>
                     </figure>
-                </div>
             </form>
         </header>
         <main class="row container">
