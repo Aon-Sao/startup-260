@@ -50,3 +50,14 @@ For this deliverable I added the application structure.
 - **Login** - Input box and submit button for login.
 - **Database** - The 'saved' page is where the data would show up. Hit the button 'Go to saved'.
 - **WebSocket** - The Websocket Alert Area is where notifications will pop up when a new longest command is saved.
+
+## CSS deliverable
+
+For this deliverable I properly styled the application into its final appearance.
+
+- **Header, footer, and main content body** - Footer has name and repo link, header has logo and login, body has the repl.
+- **Navigation elements** - At the bottom of each page, a link to the other exists. Should I move these?
+- **Responsive to window resizing** - Resizes great horizontally. Resizes pretty well vertically, works fine on mobile.
+- **Application elements** - I think I spaced things out well. I'm pleased with the contrast and colors. I abhor bright websites.
+- **Application text content** - Consistent fonts, excepting the logo.
+- **Application images** - Much better positioned now, just wish it would shrink smaller on mobile.

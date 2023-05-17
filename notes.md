@@ -39,8 +39,8 @@ This is a way to label things:
 
 # CSS
 The browser has a baseline stylesheet that I might want to delete, so that my css looks the same on all browsers.
-Use @media to switch to column layout if mobile
-Use bootstrap or tailwind
+Use @media to switch to column layout if mobile. Use a framework, like bootstrap or tailwind
+`<img src="">` not `<img href="">`...
 
 # JS
 I'll have event listeners and invoke grep, awk, sed from JS.
