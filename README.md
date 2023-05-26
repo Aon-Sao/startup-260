@@ -61,3 +61,12 @@ For this deliverable I properly styled the application into its final appearance
 - **Application elements** - I think I spaced things out well. I'm pleased with the contrast and colors. I abhor bright websites.
 - **Application text content** - Consistent fonts, excepting the logo.
 - **Application images** - Much better positioned now, just wish it would shrink smaller on mobile.
+
+## JavaScript deliverable
+
+For this deliverable I made my application functional to track and display a user's three votes.
+
+- **login** - When you press click the login button it updates the currently logged in user and enables websocket updates.
+- **database** - Sadly, not implemented.
+- **WebSocket** - I used the setInterval function to periodically increase the record command length. This will be replaced with WebSocket messages later.
+- **application logic** - The application needs run commands in bash on the server. I can make this work with Node, but apparently not in the browser, due to dependencies. I'm looking into what additional backend work might be necessary.
