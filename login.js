@@ -21,11 +21,20 @@ async function authenticate(username, password) {
     // Make this a real check later
     const authStatus = true;
     console.log(`Auth status: ${authStatus}`);
-    if (authStatus) updateCurrentUser(username);
+    if (authStatus) {
+        updateCurrentUser(username);
+    } else {
+        clearCurrentUser();
+    }
+    localStorage.setItem("signed-in", authStatus.toString())
     return authStatus;
 }
 
 function updateCurrentUser(username) {
     // I think this introduces a vulnerability
-    currentUserDisplay.innerText = `Current user: ${username}`
+    currentUserDisplay.textContent = `Current user: ${username}`
+}
+
+function clearCurrentUser() {
+    currentUserDisplay.textContent = `Current user: signed out`
 }
