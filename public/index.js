@@ -1,7 +1,5 @@
 // REPL
 
-// import * as child_process from "child_process";
-
 const cmdBox = document.querySelector("#command-input")
 const stdinBox = document.querySelector("#stdin")
 const stdoutBox = document.querySelector("#stdout")
@@ -36,14 +34,28 @@ function processInput(cmd, stdin) {
     //         console.log(`stderr: ${stderr}`);
     //     }
     // });
+    
+    fetch('http://localhost:4000/api/SubmitCmdSet', {
+  method: 'POST',
+  body: packCmdSet(),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((jsonResponse) => {   
+    updateOutput(jsonResponse.stdout, jsonResponse.stderr);
+  });
 
-    let stdout = "It looks like I may actually need more backend before my app is functional";
-    stdout += `\n\nYou typed:\n${cmd}\n\n${stdin}`;
-    const stderr = "Not sure what deliverable that will be part of, but I hope it's soon.";
-    updateOutput(stdout, stderr);
+    // let stdout = "It looks like I may actually need more backend before my app is functional";
+    // stdout += `\n\nYou typed:\n${cmd}\n\n${stdin}`;
+    // const stderr = "Not sure what deliverable that will be part of, but I hope it's soon.";
+    // updateOutput(jsonResponse.stdout, jsonResponse.stderr);
 }
 
-
+function packCmdSet() {
+  return JSON.stringify({cmd: cmdBox.value, stdin: stdinBox.value, user: 0});
+}
 
 // WebSocket
 setInterval(() => {
@@ -62,13 +74,18 @@ setInterval(() => {
 
 
 // Database
-const { MongoClient } = require('mongodb');
-
-const userName = 'lorem';
-const password = 'ipsum';
-const hostname = 'yourdb.mongodb.com'
-
-const url = `mongodb+srv://${userName}:${password}@${hostname}`
-
-const client = new MongoClient(url);
-const db = client.db('startup');
+const saveBtn = document.querySelector("#save-command-btn");
+saveBtn.addEventListener('click', (event) => {
+ fetch('http://localhost:4000/api/SaveCmdSet', {
+  method: 'POST',
+  body: packCmdSet(),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((jsonResponse) => {
+    console.log(`Saved Command Set`);   
+  });
+ 
+})
