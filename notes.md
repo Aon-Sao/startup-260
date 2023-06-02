@@ -115,7 +115,7 @@ Same origin only policy is too restrictive, it doesn't allow use of external res
 CORS, Crosss Origin Resource Sharing is the better solution.
 
 # Service design
-Make a sequence diagram for how he users will interact with the product. Use this to choose endpoints to create.
+Make a sequence diagram for how the users will interact with the product. Use this to choose endpoints to create.
 Leverage existing infrastructure, use transfer protocol verbs, work with the conventions to be compatibile.
 
 # Endpoint design
