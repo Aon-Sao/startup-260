@@ -144,6 +144,17 @@ For this class use the lts version of Node
 Install packages with NPM
 Require package in JS
 Define middleware with `express().use`, `.get`, etc. end with `.listen(<PORT>)`
+For example to define an endpoint handling GET requests to `/store/prove`:
+```javascript
+app.get('/store/provo', (req, res, next) => {
+  res.send({name: 'provo'});
+});
+```
+The path parameter supports globbing and regex, and the callback function parameter is invoked when the path pattern is matched.
+The callback takes three arguments, `req`uest, `res`ponse, and `next` (which routes to another function if desired).
+`req.params` gets you the request parameters. 
+If we define functions A and B, in that order, where both match the given path, then A will be executed first and receive B as the argument for `next`.
+
 
 # Database
 MySQL: Relational queries, jack of all trades
