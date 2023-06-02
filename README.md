@@ -70,3 +70,13 @@ For this deliverable I made my application functional to track and display a use
 - **database** - Sadly, not implemented.
 - **WebSocket** - I used the setInterval function to periodically increase the record command length. This will be replaced with WebSocket messages later.
 - **application logic** - The application needs run commands in bash on the server. I can make this work with Node, but apparently not in the browser, due to dependencies. I'm looking into what additional backend work might be necessary.
+
+## Service deliverable
+
+For this deliverable I created an HTTP service to host my frontend and provide backend endpoints.
+
+- **Node.js/Express HTTP service** - done!
+- **Static middleware for frontend** - done!
+- **Calls to third party endpoints** - I put a Chuck Norris joke in since we have to do this.
+- **Backend service endpoints** - Can submit cmdset queries, save cmdsets, and browse saved cmdsets.
+- **Frontend calls service endpoints** - Various events cause a fetch request to the endpoints.
