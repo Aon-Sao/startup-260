@@ -14,7 +14,7 @@ async function refreshHandler() {
 }
 
 async function retrieveSavedAll() { 
-  const response = await fetch("http://localhost:4000/api/BrowseCmdSet", {
+  const response = await fetch("https://startup.lars260.click/api/BrowseCmdSet", {
     method: "GET",
     headers: {"Content-type": "application/json; charset=UTF-8"}
   })

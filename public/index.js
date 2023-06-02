@@ -53,7 +53,7 @@ function processInput(cmd, stdin) {
     //     }
     // });
     
-    fetch('http://localhost:4000/api/SubmitCmdSet', {
+    fetch('https://startup.lars260.click/api/SubmitCmdSet', {
   method: 'POST',
   body: packCmdSet(),
   headers: {
@@ -94,7 +94,7 @@ setInterval(() => {
 // Database
 const saveBtn = document.querySelector("#save-command-btn");
 saveBtn.addEventListener('click', (event) => {
- fetch('http://localhost:4000/api/SaveCmdSet', {
+ fetch('https://startup.lars260.click/api/SaveCmdSet', {
   method: 'POST',
   body: packCmdSet(),
   headers: {
