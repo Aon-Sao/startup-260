@@ -80,3 +80,11 @@ For this deliverable I created an HTTP service to host my frontend and provide b
 - **Calls to third party endpoints** - I put a Chuck Norris joke in since we have to do this.
 - **Backend service endpoints** - Can submit cmdset queries, save cmdsets, and browse saved cmdsets.
 - **Frontend calls service endpoints** - Various events cause a fetch request to the endpoints.
+
+## DB deliverable
+
+For this deliverable I stored and retrieved data from MongoDB.
+
+- **MongoDB Atlas database created** - done!
+- **Endpoints for data** - data is now actually sent to and got from Mongo instead of RAM.
+- **Stores data in MongoDB** - done!
