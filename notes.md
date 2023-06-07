@@ -155,7 +155,6 @@ The callback takes three arguments, `req`uest, `res`ponse, and `next` (which rou
 `req.params` gets you the request parameters. 
 If we define functions A and B, in that order, where both match the given path, then A will be executed first and receive B as the argument for `next`.
 
-
 # Database
 MySQL: Relational queries, jack of all trades
 MongoDB: JSON objects
@@ -168,3 +167,28 @@ Don't store plaintext, store a one-way hash
 Hashing algorithms are common, and people can lookup common password hashes in your DB.
 Salt your hashes
 Set a cookie with an authentication cookie
+
+# Websockets
+Extension of HTTP protocol. Server and client need merely agree to upgrade the connection to a WebSocket connection.
+WebSocket is bidirectional, not client server. It looks like HTTP to everyone in the middle.
+There's ws and wss, insecure and secure.
+
+# React
+Framework to ease common patterns.
+JSX combines JS and XML (well, HTML now I think). We want to separate functionality not technology.
+Babel will transpile JSX to JS that generates the webpage. To scrape such a page I should try to find endpoints and request the data object the JS relies on to render the page.
+`{}` Escapes JSX into JS.
+
+## Components
+Make logical separations of the pieces of your webapp. Components are functions, named or anonymous. Old way is classes that inherit from react.Component.
+There's a React.useState hook, asynchronous. When using React don't directly manipulate the DOM, go through react with JSX.
+
+There's a React router. It routes which components get rendered.
+You define NavLink and corresponding Routes to control what components are rendered when.
+
+# Toolchains
+Take your source and deploy it.
+Vite has scripts for deploying and for dev. It runs through Babel to transpile.
+Polyfill will add compatibilities to your JS that run based on the detected environment (done clientside).
+Vite is sensitive to directory structure. I probably want to make vite / npm set up a template and either move code into it or just rewrite with reference.
+There seems to be quite a bit of restructuring for debugging and deploying with react and vite.
