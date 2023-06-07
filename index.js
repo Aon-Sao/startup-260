@@ -22,11 +22,6 @@ app.use(`/api`, apiRouter);
 
 // Define middleware.
 
-// app.use((req, res, next) => {
-//   console.log(req);
-//   next;
-// })
-
 apiRouter.post(`/SubmitCmdSet`, (req, res) => {
   const result = evaluateCmdSet(req.body.cmd, req.body.stdin);
   res.status(200).json(result);
@@ -41,15 +36,37 @@ function evaluateCmdSet(cmd, stdin) {
 
 apiRouter.post(`/SaveCmdSet`, (req, res) => {
   const result = evaluateCmdSet(req.body.cmd, req.body.stdin);
-  placeHolderDB.push(result);
+  storeCmdSet(result);
   console.log(placeHolderDB);
   res.status(201).json(result);
 })
 
-apiRouter.get(`/BrowseCmdSet`, (req, res) => {
+apiRouter.get(`/BrowseCmdSet`, async (req, res) => {
   console.log(`Hit BrowseCmdSet`);
-  res.status(200).json(placeHolderDB);
+  const result = await getAllCmdSets();
+  console.log(result);
+  res.status(200).json(result);
 })
+
+// Set up Database
+const { MongoClient } = require('mongodb');
+const config = require('./dbConfig.json');
+const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
+const Mclient = new MongoClient(url);
+const Mdb = Mclient.db('startup')
+const cmdsetCollection = Mdb.collection('cmdsets');
+
+async function storeCmdSet(cmdset) {
+  return await cmdsetCollection.insertOne(cmdset);
+}
+
+async function getAllCmdSets() {
+  result = cmdsetCollection.find();
+  // console.log(await result.toArray());
+  return result.toArray();
+}
+
+// Need to specify cmdsets so I can request remove update specific cmdsets.
 
 // Return the application's default page if the path is unknown
 // Does omitting the first parameter default to * ?

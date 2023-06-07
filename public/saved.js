@@ -4,6 +4,9 @@ const refreshBtn = document.querySelector("#refresh-btn");
 const personalList = document.querySelector("#personal-saved-list");
 const publicList = document.querySelector("#public-saved-list");
 
+// const appDest = "http://localhost:4000";
+const appDest = "https://startup.lars260.click";
+
 refreshBtn.addEventListener("click", refreshHandler());
 
 async function refreshHandler() {
@@ -14,11 +17,14 @@ async function refreshHandler() {
 }
 
 async function retrieveSavedAll() { 
-  const response = await fetch("https://startup.lars260.click/api/BrowseCmdSet", {
+  const response = await fetch(`${appDest}/api/BrowseCmdSet`, {
     method: "GET",
     headers: {"Content-type": "application/json; charset=UTF-8"}
   })
-  .then((response) => response.json())
+  .then((response) => {
+      console.log(response);
+      return response.json();
+    })
   .then((jsonResponse) => {
       console.log(typeof(jsonResponse));
       return jsonResponse;

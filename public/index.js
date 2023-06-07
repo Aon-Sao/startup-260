@@ -23,6 +23,9 @@ const stdinBox = document.querySelector("#stdin")
 const stdoutBox = document.querySelector("#stdout")
 const stderrBox = document.querySelector("#stderr")
 
+// const appDest = "http://localhost:4000";
+const appDest = "https://startup.lars260.click";
+
 cmdBox.addEventListener('keyup', (event) => {
     console.log(cmdBox.value);
     processInput(cmdBox.value, stdinBox.value);
@@ -53,7 +56,7 @@ function processInput(cmd, stdin) {
     //     }
     // });
     
-    fetch('https://startup.lars260.click/api/SubmitCmdSet', {
+    fetch(`${appDest}/api/SubmitCmdSet`, {
   method: 'POST',
   body: packCmdSet(),
   headers: {
@@ -94,7 +97,7 @@ setInterval(() => {
 // Database
 const saveBtn = document.querySelector("#save-command-btn");
 saveBtn.addEventListener('click', (event) => {
- fetch('https://startup.lars260.click/api/SaveCmdSet', {
+ fetch(`${appDest}/api/SaveCmdSet`, {
   method: 'POST',
   body: packCmdSet(),
   headers: {
