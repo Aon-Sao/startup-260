@@ -1,8 +1,8 @@
+'use strict'
 // Adapted from the simon example, an excellent existing asset to leverage
 
 const express = require('express');
 const app = express();
-let placeHolderDB = [];
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -22,29 +22,81 @@ app.use(`/api`, apiRouter);
 
 // Define middleware.
 
-apiRouter.post(`/SubmitCmdSet`, (req, res) => {
-  const result = evaluateCmdSet(req.body.cmd, req.body.stdin);
+apiRouter.post(`/SubmitCmdSet`, async (req, res) => {
+  const result = await evaluateCmdSet(req.body.cmd, req.body.stdin);
   res.status(200).json(result);
 })
 
-function evaluateCmdSet(cmd, stdin) { 
-  let stdout = "It looks like I may actually need more backend before my app is functional";
-  stdout += `\n\nYou typed:\n${cmd}\n\n${stdin}`;
-  const stderr = "Not sure what deliverable that will be part of, but I hope it's soon.";
-  return {cmd: cmd, stdin: stdin, stdout: stdout, stderr: stderr};
+function isSafeCmd(cmd, stdin) { return true; }
+
+async function evaluateCmdSet(cmd, stdin) {
+  console.log("Evaluating CmdSet");
+  if (not (isSafeCmd(cmd, stdin))) {
+    console.log(`Unsafe cmd: ${cmd}\n${stdin}`);
+    return {cmd: cmd, stdin: stdin, stdout: "", stderr: "That command doesn't look right."};
+  } else {
+    let result = {cmd: cmd, stdin: stdin};
+    const { spawn } = require('child_process');
+    const Readable = require('stream').Readable;
+  
+    // Create child process
+    // I need to split the passed cmd into program and args
+    // This method is poor, all spaces are treated as separating
+    // arguments, and quoting or escaping won't save you.
+    // I also don't support piping like I wanted to,
+    // and may need to refactor to exec instead of spawn so to do.
+    // Executing user input in the shell is a huge security problem.
+    const commandSplit = cmd.split(' ');
+    const child = spawn(commandSplit[0], commandSplit.slice(1));
+  
+    // Create a stream from passed stdin and pipe it to the child
+    const inStream = Readable.from(stdin);
+    inStream.pipe(child.stdin);
+    
+    // Event handler for when the child exits
+    child.on('exit', function (code, signal) {
+      console.log('child process exited with ' +
+                  `code ${code} and signal ${signal}`);
+    });
+    
+    for await (const data of child.stdout) {
+      result.stdout = `${data}`;
+    }
+  
+    for await (const data of child.stderr) {
+      result.stderr = `${data}`;
+    }
+  
+    // When stdout or stderr of the child process have
+    // a data event, write to console and store in result.
+    // child.stdout.on('data', (data) => {
+      // console.log(`child stdout:\n${data}`);
+      // result.stdout = data;
+      // console.log('stdout result', result);
+    // });
+  
+    // child.stderr.on('data', (data) => {
+      // console.error(`child stderr:\n${data}`);
+      // result.stderr = data.toString();
+      // console.log('stderr result', result);
+    // });
+    
+    result.stdout = (typeof result.stdout === 'undefined') ? "" : result.stdout;
+    result.stderr = (typeof result.stderr === 'undefined') ? "" : result.stderr;
+  
+    console.log("Result: ", result);
+    return result;
+  }
 }
 
-apiRouter.post(`/SaveCmdSet`, (req, res) => {
-  const result = evaluateCmdSet(req.body.cmd, req.body.stdin);
+apiRouter.post(`/SaveCmdSet`, async (req, res) => {
+  const result = await evaluateCmdSet(req.body.cmd, req.body.stdin);
   storeCmdSet(result);
-  console.log(placeHolderDB);
   res.status(201).json(result);
 })
 
 apiRouter.get(`/BrowseCmdSet`, async (req, res) => {
-  console.log(`Hit BrowseCmdSet`);
   const result = await getAllCmdSets();
-  console.log(result);
   res.status(200).json(result);
 })
 
