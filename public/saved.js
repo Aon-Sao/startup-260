@@ -4,8 +4,6 @@ const refreshBtn = document.querySelector("#refresh-btn");
 const personalList = document.querySelector("#personal-saved-list");
 const publicList = document.querySelector("#public-saved-list");
 
-// const appDest = "http://localhost:4000";
-const appDest = "https://startup.lars260.click";
 
 refreshBtn.addEventListener("click", refreshHandler());
 
@@ -17,7 +15,7 @@ async function refreshHandler() {
 }
 
 async function retrieveSavedAll() { 
-  const response = await fetch(`${appDest}/api/BrowseCmdSet`, {
+  const response = await fetch(`/api/BrowseCmdSet`, {
     method: "GET",
     headers: {"Content-type": "application/json; charset=UTF-8"}
   })

@@ -17,14 +17,10 @@ const joke = await getJoke();
 jokeElem.textContent = joke.value;
 
 // REPL
-
 const cmdBox = document.querySelector("#command-input")
 const stdinBox = document.querySelector("#stdin")
 const stdoutBox = document.querySelector("#stdout")
 const stderrBox = document.querySelector("#stderr")
-
-// const appDest = "http://localhost:4000";
-const appDest = "https://startup.lars260.click";
 
 cmdBox.addEventListener('keyup', (event) => {
     console.log(cmdBox.value);
@@ -42,21 +38,7 @@ function updateOutput(stdout, stderr) {
     stderrBox.value = stderr;
 }
 function processInput(cmd, stdin) {
-    // Evaluates the command + stdin
-    // const { exec } = require('child_process');
-    // import { exec } from "child_process";
-    // exec('bash -c "echo this"', (err, stdout, stderr) => {
-    //     if (err) {
-    //         //some err occurred
-    //         console.error(err)
-    //     } else {
-    //         // the *entire* stdout and stderr (buffered)
-    //         console.log(`stdout: ${stdout}`);
-    //         console.log(`stderr: ${stderr}`);
-    //     }
-    // });
-    
-    fetch(`${appDest}/api/SubmitCmdSet`, {
+    fetch(`/api/SubmitCmdSet`, {
   method: 'POST',
   body: packCmdSet(),
   headers: {
@@ -93,11 +75,10 @@ setInterval(() => {
     }
 }, 10000);
 
-
 // Database
 const saveBtn = document.querySelector("#save-command-btn");
 saveBtn.addEventListener('click', (event) => {
- fetch(`${appDest}/api/SaveCmdSet`, {
+ fetch(`/api/SaveCmdSet`, {
   method: 'POST',
   body: packCmdSet(),
   headers: {
@@ -108,5 +89,50 @@ saveBtn.addEventListener('click', (event) => {
   .then((jsonResponse) => {
     console.log(`Saved Command Set`);   
   });
- 
-})
+});
+
+// Login
+const newUserBtn = document.querySelector("#new-user-btn");
+const loginButton = document.querySelector("#login-btn");
+const usernameField = document.querySelector("#username");
+const passwordField = document.querySelector("#password");
+const currentUserDisplay = document.querySelector("#current-user-display");
+
+loginButton.addEventListener('click', (event) => {
+  fetch(`/api/auth/login`, {
+    method: 'POST',
+    body: JSON.stringify({
+      email: usernameField.value,
+      password: passwordField.value,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  updateCurrentUser(usernameField.value);
+});
+
+newUserBtn.addEventListener('click', (event) => {
+  fetch(`/api/auth/create`, {
+    method: 'POST',
+    body: JSON.stringify({
+      email: usernameField.value,
+      password: passwordField.value,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  updateCurrentUser(usernameField.value);
+});
+
+// Do I need a getMe call? Should that endpoint be in the UI?
+
+function updateCurrentUser(username) {
+  currentUserDisplay.textContent = `Current user: ${username}`;
+}
+
+function clearCurrentUser() {
+  currentUserDisplay.textContent = `Current user: signed out`;
+}
+
