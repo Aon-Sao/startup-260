@@ -192,3 +192,14 @@ Vite has scripts for deploying and for dev. It runs through Babel to transpile.
 Polyfill will add compatibilities to your JS that run based on the detected environment (done clientside).
 Vite is sensitive to directory structure. I probably want to make vite / npm set up a template and either move code into it or just rewrite with reference.
 There seems to be quite a bit of restructuring for debugging and deploying with react and vite.
+
+# Reactivity
+Rerender pieces of the page when they change. React adds the "shadow DOM", a given event causes the shadow DOM to be manipulated, recomputed, etc, until it reaches a finished state, then the shadow DOM is pushed to the actual DOM and gets rendered.
+
+## Hooks
+Hooks only work in function components, only in the top of the function scope. Not in block scopes therein. 
+useState - component state, like properties of an object.
+useEffect - hooks into events in the lifecycle of a component, like render.
+useEffect can be given render dependencies
+useEffect can return a cleanup function, basically a destructor.
+Remember to use hooks to change things, don't just use assignment. If React isn't involved it won't update the shadow DOM, which gets pushed to the real DOM.
