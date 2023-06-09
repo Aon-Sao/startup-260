@@ -1,40 +1,47 @@
-"use strict"
+'use strict'
 
-// Need to listen for click on sign in button
-// Pass the values of the login fields to the server
-// Get a response back, display signed-in user
-
-// Declare variables to grab elements
+const newUserBtn = document.querySelector("#new-user-btn");
 const loginButton = document.querySelector("#login-btn");
 const usernameField = document.querySelector("#username");
 const passwordField = document.querySelector("#password");
 const currentUserDisplay = document.querySelector("#current-user-display");
 
-// Add event listener to sign in button
-loginButton.addEventListener("click", (event) => authenticate(usernameField.value, passwordField.value));
+// These fetch requests should have .then handlers to update current user.
 
-// Authenticate with the server (placeholder)
-async function authenticate(username, password) {
-    console.log("clicked sign in button");
-    console.log(`Username: ${username}`);
-    console.log(`Password: ${password}`);
-    // Make this a real check later
-    const authStatus = true;
-    console.log(`Auth status: ${authStatus}`);
-    if (authStatus) {
-        updateCurrentUser(username);
-    } else {
-        clearCurrentUser();
-    }
-    localStorage.setItem("signed-in", authStatus.toString())
-    return authStatus;
-}
+loginButton.addEventListener('click', (event) => {
+    fetch(`/api/auth/login`, {
+        method: 'POST',
+        body: JSON.stringify({
+            email: usernameField.value,
+            password: passwordField.value,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    });
+    updateCurrentUser(usernameField.value);
+});
+
+newUserBtn.addEventListener('click', (event) => {
+    fetch(`/api/auth/create`, {
+        method: 'POST',
+        body: JSON.stringify({
+            email: usernameField.value,
+            password: passwordField.value,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    });
+    updateCurrentUser(usernameField.value);
+});
+
+// Do I need a getMe call? Should that endpoint be in the UI?
 
 function updateCurrentUser(username) {
-    // I think this introduces a vulnerability
-    currentUserDisplay.textContent = `Current user: ${username}`
+    currentUserDisplay.textContent = `Current user: ${username}`;
 }
 
 function clearCurrentUser() {
-    currentUserDisplay.textContent = `Current user: signed out`
+    currentUserDisplay.textContent = `Current user: signed out`;
 }
