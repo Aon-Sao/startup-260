@@ -1,9 +1,6 @@
 startup_ideas
 .idea/
-scratch.js
 node_modules
-authtest.js
-datatest.js
 dbConfig.json
-async_example.js
-servicePlanning.md
+todo.md
+.gitignore
