@@ -9,9 +9,11 @@ async function getJoke() {
     })
         .then((response) => response.json())
         .then((jsonResponse) => {
-            return jsonResponse;
+            jokeElem.textContent = jsonResponse.value;
         });
 }
 
-const joke = await getJoke();
-jokeElem.textContent = joke.value;
+// const joke = await getJoke();
+// jokeElem.textContent = joke.value;
+
+getJoke()
