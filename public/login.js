@@ -18,8 +18,13 @@ loginButton.addEventListener('click', (event) => {
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },
-    });
-    updateCurrentUser(usernameField.value);
+    }).then((res) => {
+      if (res.status == 401) {
+        clearCurrentUser()
+      } else {
+      updateCurrentUser(usernameField.value);
+      }
+    })
 });
 
 newUserBtn.addEventListener('click', (event) => {
