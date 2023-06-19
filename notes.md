@@ -203,3 +203,7 @@ useEffect - hooks into events in the lifecycle of a component, like render.
 useEffect can be given render dependencies
 useEffect can return a cleanup function, basically a destructor.
 Remember to use hooks to change things, don't just use assignment. If React isn't involved it won't update the shadow DOM, which gets pushed to the real DOM.
+
+# Security
+Use good encryption, use it correctly, wherever data is stored or transferred.
+Look at OWASP 10
