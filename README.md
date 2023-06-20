@@ -97,3 +97,12 @@ For this deliverable I added user registration and authentication.
 - **existing user** - Verifies the user's name and password from data stored in the database
 - **Use MongoDB to store credentials** - done!
 - **Restricts functionality** - You cannot see websocket updates until you have logged in. Maybe later saving a command will require login, but that's WIP.
+
+## WebSocket deliverable
+
+For this deliverable I enabled realtime reporting of saved command length from authorized users.
+
+- **Backend listens for WebSocket connection** - done!
+- **Frontend makes WebSocket connection** - done!
+- **Data sent over WebSocket connection** - done!
+- **WebSocket data displayed** - Saved command length updates in realtime (near login area).
