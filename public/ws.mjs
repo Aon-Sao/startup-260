@@ -7,7 +7,6 @@ const socketEl = document.querySelector("#websocket-zone");
 // Display that we have opened the webSocket
 socket.onopen = (event) => {
   console.log("WebSocket connection opened");
-  sendMessage('johny', 3);
 };
 
 // Display messages we receive from our friends
@@ -24,7 +23,7 @@ socket.onclose = (event) => {
   // socketEl.textContent = "WebSocket connection closed";
 };
 
-function sendMessage(user, length) {
+export function sendMessage(user, length) {
   const msg = { "user": user, "length": length };
   displayMessage(msg);
   console.log(`sending: ${msg}`);
@@ -36,4 +35,6 @@ function displayMessage(msg) {
   socketEl.textContent = `User ${msg.user} has the new highest length of ${msg.length}`;
 }
 
-// Send message if new longest, need to design
+// module.exports = {
+//   sendMessage: sendMessage
+// }

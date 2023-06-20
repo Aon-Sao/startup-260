@@ -1,5 +1,8 @@
 'use strict'
 
+// const { sendMessage } = require('./ws.mjs');
+import {sendMessage} from "./ws.mjs";
+
 const cmdBox = document.querySelector("#command-input")
 const stdinBox = document.querySelector("#stdin")
 const stdoutBox = document.querySelector("#stdout")
@@ -19,17 +22,27 @@ stdinBox.addEventListener('keyup', (event) => {
 saveBtn.addEventListener('click', async (event) => {
   const cmdset = await packCmdSet();
   console.log(`soon to ship `, cmdset);
-  fetch(`/api/SaveCmdSet`, {
+  const req = {
         method: 'POST',
         body: cmdset,
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
-        },
-    })
+                },
+              }
+  fetch(`/api/SaveCmdSet`, req)
         .then((response) => response.json())
         .then((jsonResponse) => {
             console.log(`Saved Command Set`);
         });
+  const user = JSON.parse(req.body).user;
+  const length = JSON.parse(req.body).cmd.length;
+  console.log("length is ", length);
+  if (user === undefined) {
+    console.log("user is undefined");
+  } else {
+    console.log("save-send-msg for user ", user);
+    sendMessage(user, length);
+  }
 });
 
 async function packCmdSet() {
