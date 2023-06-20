@@ -16,10 +16,12 @@ stdinBox.addEventListener('keyup', (event) => {
     processInput(cmdBox.value, stdinBox.value);
 });
 
-saveBtn.addEventListener('click', (event) => {
-    fetch(`/api/SaveCmdSet`, {
+saveBtn.addEventListener('click', async (event) => {
+  const cmdset = await packCmdSet();
+  console.log(`soon to ship `, cmdset);
+  fetch(`/api/SaveCmdSet`, {
         method: 'POST',
-        body: packCmdSet(),
+        body: cmdset,
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },
@@ -30,18 +32,27 @@ saveBtn.addEventListener('click', (event) => {
         });
 });
 
-function packCmdSet() {
-    return JSON.stringify({cmd: cmdBox.value, stdin: stdinBox.value, user: 0});
+async function packCmdSet() {
+  const user = await fetch('/api/user/me', {
+    method: 'GET',
+    headers: { 'Conetnt-type': 'application/json; charseet=UTF-8' }
+  }).then((r) => r.json());
+  console.log("saving cmdset for user: ", await user);
+  const cmdset = JSON.stringify({cmd: cmdBox.value, stdin: stdinBox.value, user: await user.email });
+  console.log(`packed `, cmdset);
+  return cmdset;
 }
 function updateOutput(stdout, stderr) {
     // Should only adjust the representation
     stdoutBox.value = stdout;
     stderrBox.value = stderr;
 }
-function processInput(cmd, stdin) {
-    fetch(`/api/SubmitCmdSet`, {
+async function processInput() {
+  const cmdset = await packCmdSet();
+  console.log(`soon shipping`, cmdset);
+  fetch(`/api/SubmitCmdSet`, {
         method: 'POST',
-        body: packCmdSet(),
+        body: cmdset,
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },

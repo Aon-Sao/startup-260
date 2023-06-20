@@ -123,10 +123,10 @@ wss.on('connection', (ws) => {
   // Forward messages to everyone except the sender
   ws.on('message', function message(data) {
     connections.forEach((c) => {
+      console.log(`Got ${data}\n    from ${connection.id}`);
       if (c.id !== connection.id) {
-        console.log(`Got ${data}\n    from ${connection.id}`);
         console.log(`Sending to ${c.id}`);
-        c.ws.send(data);
+        c.ws.send(`${data}`);
       }
     });
   });
