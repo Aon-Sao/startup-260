@@ -8,7 +8,6 @@ const publicList = document.querySelector("#public-saved-list");
 refreshBtn.addEventListener("click", refreshHandler());
 
 async function refreshHandler() {
-    console.log("clicked refresh");
     retrieveSavedAll().then((listingsAll) => updateListings(listingsAll));
 }
 
@@ -18,14 +17,11 @@ async function retrieveSavedAll() {
         headers: {"Content-type": "application/json; charset=UTF-8"}
     })
         .then((response) => {
-            console.log(response);
             return response.json();
         })
         .then((jsonResponse) => {
-            console.log(typeof(jsonResponse));
             return jsonResponse;
         })
-    console.log(response);
     return response;
 }
 
@@ -37,7 +33,6 @@ function updateListings(listings) {
 }
 
 function createCard(cmdset) {
-    console.log("creating card")
     const cardHC = document.createElement("h5");
     cardHC.textContent = cmdset.cmd;
     cardHC.className = "card-title";
@@ -66,7 +61,6 @@ function createCard(cmdset) {
     newCard.appendChild(newCardBody);
     newCard.className = "card text-white bg-dark";
 
-    console.log(newCard.toString())
     return newCard;
 }
 

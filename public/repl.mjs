@@ -10,18 +10,15 @@ const stderrBox = document.querySelector("#stderr")
 const saveBtn = document.querySelector("#save-command-btn");
 
 cmdBox.addEventListener('keyup', (event) => {
-    console.log(cmdBox.value);
     processInput(cmdBox.value, stdinBox.value);
 });
 
 stdinBox.addEventListener('keyup', (event) => {
-    console.log(stdinBox.value);
     processInput(cmdBox.value, stdinBox.value);
 });
 
 saveBtn.addEventListener('click', async (event) => {
   const cmdset = await packCmdSet();
-  console.log(`soon to ship `, cmdset);
   const req = {
         method: 'POST',
         body: cmdset,
@@ -32,15 +29,11 @@ saveBtn.addEventListener('click', async (event) => {
   fetch(`/api/SaveCmdSet`, req)
         .then((response) => response.json())
         .then((jsonResponse) => {
-            console.log(`Saved Command Set`);
         });
   const user = JSON.parse(req.body).user;
   const length = JSON.parse(req.body).cmd.length;
-  console.log("length is ", length);
   if (user === undefined) {
-    console.log("user is undefined");
   } else {
-    console.log("save-send-msg for user ", user);
     sendMessage(user, length);
   }
 });
@@ -50,9 +43,7 @@ async function packCmdSet() {
     method: 'GET',
     headers: { 'Conetnt-type': 'application/json; charseet=UTF-8' }
   }).then((r) => r.json());
-  console.log("saving cmdset for user: ", await user);
   const cmdset = JSON.stringify({cmd: cmdBox.value, stdin: stdinBox.value, user: await user.email });
-  console.log(`packed `, cmdset);
   return cmdset;
 }
 function updateOutput(stdout, stderr) {
@@ -62,7 +53,6 @@ function updateOutput(stdout, stderr) {
 }
 async function processInput() {
   const cmdset = await packCmdSet();
-  console.log(`soon shipping`, cmdset);
   fetch(`/api/SubmitCmdSet`, {
         method: 'POST',
         body: cmdset,

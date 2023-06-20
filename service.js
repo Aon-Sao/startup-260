@@ -94,7 +94,6 @@ apiRouter.get('/user/me', async (req, res) => {
 // Return the application's default page if the path is unknown
 // Does omitting the first parameter default to * ?
 app.use((_req, res) => {
-  console.log(`Unknown path: ${_req.path}`);
   res.sendFile('index.html', { root: 'public' });
 });
 
@@ -118,14 +117,11 @@ wss.on('connection', (ws) => {
   const connection = { id: connections.length + 1, alive: true, ws: ws };
   connections.push(connection);
   connections.forEach((c) => { console.log(`Connection: ${c.id}`) })
-  // console.log(`Connections: ${}`);
 
   // Forward messages to everyone except the sender
   ws.on('message', function message(data) {
     connections.forEach((c) => {
-      console.log(`Got ${data}\n    from ${connection.id}`);
       if (c.id !== connection.id) {
-        console.log(`Sending to ${c.id}`);
         c.ws.send(`${data}`);
       }
     });
@@ -202,7 +198,6 @@ function falseEvaluate(cmd, stdin) {
 function isSafeCmd(cmd, stdin) { return true; }
 
 async function evaluateCmdSet(cmd, stdin) {
-  console.log("Evaluating CmdSet");
   if (not (isSafeCmd(cmd, stdin))) {
     console.log(`Unsafe cmd: ${cmd}\n${stdin}`);
     return {cmd: cmd, stdin: stdin, stdout: "", stderr: "That command doesn't look right."};
@@ -268,11 +263,8 @@ async function storeCmdSet(cmdset) {
 }
 
 async function getAllCmdSets() {
-  result = cmdColl.find();
-  // console.log(await result.toArray());
+  const result = cmdColl.find();
   return result.toArray();
 }
 
-// Need to specify cmdsets so I can request remove update specific cmdsets.
-
-
+// Need to id cmdsets so I can request remove update specific cmdsets.
